@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../src/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends React.Component {
+  state = {
+    total: 0,
+  }
+  
+  incrementDecrement = (op) => {
+    if (op === "+") {
+      this.setState({total: this.state.total + 1})
+    }
+    if (op === "-") {
+      this.setState({total: this.state.total - 1})
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">        
+        <button className="button" onClick={() => this.incrementDecrement("+")}>+</button>
+        <div className="result">
+          {this.state.total}
+        </div>
+        <button className="button" onClick={() => this.incrementDecrement("-")}>-</button>
+      </div>
+    );
+  }
 }
 
 export default App;

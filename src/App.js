@@ -11,8 +11,7 @@ class App extends React.Component {
   incrementDecrement = (op) => {
     if (op === "+") {
       this.setState({total: this.state.total + 1})
-    }
-    if (op === "-") {
+    } else if (op === "-") {
       this.setState({total: this.state.total - 1})
     }
   }
